@@ -13,14 +13,18 @@ def main(src_path, dst_path):
     anim, joint_names, frame_time, order = load(src_path)
 
     # TODO: edit anim
+    print(anim.orients.qs.shape)
+    print(anim.offsets.shape)
+    print(anim.positions.shape)
+    print(anim.rotations.qs.shape)
+    print(joint_names[0:10])
 
     # Save anim to bvh file
-    save(os.path.join(dst_path, 'output.bvh'), anim, joint_names, frame_time, order)
+    # save(os.path.join(dst_path, 'output.bvh'), anim, joint_names, frame_time, order)
     
     # Visualize anim and save as mp4
-    name = os.path.basename(src_path).split('.')[0]
-    visualize_anim(anim, title=None, img_dir=os.path.join(dst_path, name), multi_view=False,
-                   video_path=os.path.join(dst_path, name + ".mp4"))
+    # name = os.path.basename(src_path).split('.')[0]
+    # visualize_anim(anim, title=None, img_dir=os.path.join(dst_path, name), multi_view=False, video_path=os.path.join(dst_path, name + ".mp4"))
 
 
 if __name__ == '__main__':
